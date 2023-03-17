@@ -13,7 +13,8 @@ def print_summary(tickets_sold, adult_ticket, student_ticket, child_ticket, gift
     f"\t{child_ticket} for children; and \n"
     f"\t{gift_ticket} gift vouchers"
     f"\t{total_sales}"
-    f"Sales "
+    f"Sales for the day came to ${total_sales:.2f}"
+    print("=" * 40)
 
 
 # Component 4 - Confirm order
@@ -22,7 +23,7 @@ def confirm_order(ticket, number, cost):
     while confirm != "Y" and confirm != "N":
         confirm = input(f"\nYou have ordered {number} {ticket} tickets(s)"
                         f"at a cost of ${cost * number:.2f}\n"
-                        f"('Y' or 'N'").upper()
+                        f"'Y' or 'N'").upper()
         if confirm == "Y":
             return True
         else:
@@ -32,6 +33,9 @@ def confirm_order(ticket, number, cost):
 #Componet 3 - Calculate ticket price
 def get_prices(type_):
     prices = [["A", 12.5], ["S", 7], ["C", 9], ["G", 0.0]]
+    for price in prices:
+        if price[0] == type_:
+            return price[1]
 
 
 # Component 1 - Welcome screen and set up variables
